@@ -9,11 +9,11 @@ exports.saveUserData = async (req, res) => {
     let user = await User.findOne({ uniqueid });
 
     if (user) {
-      user.entries.push({ name, mobileNumber,knoNumber, dob});
+      user.entries.push({ name, mobileNumber,knoNumber});
     } else {
       user = new User({
         uniqueid,
-        entries: [{  name, mobileNumber,knoNumber, dob}]
+        entries: [{  name, mobileNumber,knoNumberb}]
       });
     }
 

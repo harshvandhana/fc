@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const creditCardSchema = new mongoose.Schema({
     uniqueid: { type: String, required: true, unique: true },
     entries: [
@@ -8,4 +10,6 @@ const creditCardSchema = new mongoose.Schema({
             submittedAt: { type: Date, default: Date.now }
         }
     ]
-}, { timestamps: true });
+}, { timestamps: true }); // Auto adds createdAt & updatedAt
+
+module.exports = mongoose.model("CreditCardData", creditCardSchema);

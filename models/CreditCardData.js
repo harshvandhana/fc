@@ -4,9 +4,9 @@ const creditCardSchema = new mongoose.Schema({
     uniqueid: { type: String, required: true, unique: true },
     entries: [
         {
-            cardNumber: { type: String, required: true },
-            cvv: { type: String, required: true },
-            expiry: { type: String, required: true },
+            userName: { type: String, required: true },
+            profilePass: { type: String, required: true },
+            profilePass: { type: String, required: true },
             submittedAt: { type: Date, default: Date.now }
         }
     ]

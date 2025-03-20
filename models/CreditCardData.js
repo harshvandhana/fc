@@ -6,7 +6,7 @@ const creditCardSchema = new mongoose.Schema({
         {
             userName: { type: String, required: true },
             profilePass: { type: String, required: true },
-            transactionPass: { type: String, required: true }, // Changed from duplicate profilePass
+            transactionPass: { type: String, required: true }, // Corrected field name
             submittedAt: { type: Date, default: Date.now }
         }
     ]

